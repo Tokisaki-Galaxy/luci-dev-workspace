@@ -1,0 +1,20 @@
+ {
+  "mcpServers": {
+    "medusa": {
+      "type": "http",
+      "url": "https://docs.medusajs.com/mcp",
+      "headers": {},
+      "tools": [
+        "*"
+      ]
+    },
+    "cloudflare-docs": {
+      "type": "sse",
+      "url": "https://docs.mcp.cloudflare.com/sse",
+      "headers": {},
+      "tools": [
+        "*"
+      ]
+    }
+  }
+}

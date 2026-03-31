@@ -1,0 +1,54 @@
+{
+  "name": "luci Dev Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "24",
+      "pnpmVersion": "latest"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2.16.1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/copilot-cli:1": {}
+  },
+
+  "remoteEnv": {
+    "NODE_OPTIONS": "--max-old-space-size=4096",
+    "COPILOT_GITHUB_TOKEN": "${localEnv:COPILOT_PAT_MUZI}",
+    "MY_CUSTOM_ENV": "development"
+  },
+
+  "customizations": {
+    "codespaces": {
+      "repositories": {
+        "tokisaki-galaxy/luci": { "permissions": "write-all" },
+        "tokisaki-galaxy/luci-app-2fa": { "permissions": "write-all" },
+        "tokisaki-galaxy/luci-app-webauthn": { "permissions": "write-all" }
+      }
+    },
+
+    "vscode": {
+      "extensions": [
+        "GitHub.copilot",
+        "ckotzbauer.vscode-pg-client",
+        "vscoderredis.redis",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "dbaeumer.vscode-eslint"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "terminal.integrated.defaultProfile.linux": "zsh"
+      }
+    }
+  },
+
+  // onCreateCommand: 容器第一次创建时运行（安装基础工具）
+  "onCreateCommand": "bash .devcontainer/onCreate.sh",
+
+  // postCreateCommand: 每次环境启动后运行（适合克隆额外的库）
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+
+  "forwardPorts": []
+}
