@@ -22,6 +22,7 @@
   "customizations": {
     "codespaces": {
       "repositories": {
+        "tokisaki-galaxy/openwrt": { "permissions": "write-all" },
         "tokisaki-galaxy/luci": { "permissions": "write-all" },
         "tokisaki-galaxy/luci-app-2fa": { "permissions": "write-all" },
         "tokisaki-galaxy/luci-app-webauthn": { "permissions": "write-all" }

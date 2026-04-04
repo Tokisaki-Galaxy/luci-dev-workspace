@@ -20,7 +20,7 @@ cp /workspaces/luci-dev-workspace/.devcontainer/mcp-config.json ~/.copilot/
 echo "📥 Cloning repositories..."
 cd /workspaces/luci-dev-workspace
 
-repos=("luci" "luci-app-2fa" "luci-app-webauthn")
+repos=("openwrt" "luci" "luci-app-2fa" "luci-app-webauthn")
 for repo in "${repos[@]}"; do
   if [ ! -d "$repo" ]; then
     git clone https://github.com/tokisaki-galaxy/$repo
